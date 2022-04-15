@@ -30,9 +30,9 @@ Outputs:
   ChemweaponsProtectionBot:
     Description: "API Gateway endpoint URL for Prod stage for ChemweaponsProtectionBot function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/handle_bot_message/"
-  ChemweaponsProtectionBot-function:
+  ChemweaponsProtectionBotFunction:
     Description: "ChemweaponsProtectionBot Lambda Function ARN"
     Value: !GetAtt ChemweaponsProtectionBot.Arn
-  ChemweaponsProtectionBot-function-role:
+  ChemweaponsProtectionBotFunctionRole:
     Description: "Implicit IAM Role created for ChemweaponsProtectionBot function"
     Value: !GetAtt ChemweaponsProtectionBot.Arn
