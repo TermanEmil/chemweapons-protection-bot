@@ -1,6 +1,6 @@
 import json
 import telegram
-from handle_bot_message.telegram_bot import get_bot
+from telegram_bot import get_bot
 from handle_message import handle_message
 
 
