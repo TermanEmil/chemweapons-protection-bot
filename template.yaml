@@ -27,12 +27,12 @@ Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  chemweapons-protection-bot:
-    Description: "API Gateway endpoint URL for Prod stage for chemweapons-protection-bot function"
+  ChemweaponsProtectionBot:
+    Description: "API Gateway endpoint URL for Prod stage for ChemweaponsProtectionBot function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/handle_bot_message/"
-  chemweapons-protection-bot-function:
-    Description: "chemweapons-protection-bot Lambda Function ARN"
-    Value: !GetAtt chemweapons-protection-bot.Arn
-  chemweapons-protection-bot-function-role:
-    Description: "Implicit IAM Role created for chemweapons-protection-bot function"
-    Value: !GetAtt chemweapons-protection-bot.Arn
+  ChemweaponsProtectionBot-function:
+    Description: "ChemweaponsProtectionBot Lambda Function ARN"
+    Value: !GetAtt ChemweaponsProtectionBot.Arn
+  ChemweaponsProtectionBot-function-role:
+    Description: "Implicit IAM Role created for ChemweaponsProtectionBot function"
+    Value: !GetAtt ChemweaponsProtectionBot.Arn
