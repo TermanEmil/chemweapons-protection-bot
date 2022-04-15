@@ -8,7 +8,7 @@ Globals:
     Timeout: 45
 
 Resources:
-  PsychologistFindHandler:
+  ChemweaponsProtectionBot:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: handle_bot_message/
