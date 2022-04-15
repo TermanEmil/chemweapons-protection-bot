@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Bot for helping with spreading information on how to protect against chemical weapons
+
+Globals:
+  Function:
+    Timeout: 45
+
+Resources:
+  PsychologistFindHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handle_bot_message/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Architectures:
+        - x86_64
+      Events:
+        HandleBotMessage:
+          Type: Api
+          Properties:
+            Path: /handle_bot_message
+            Method: post
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  chemweapons-protection-bot:
+    Description: "API Gateway endpoint URL for Prod stage for chemweapons-protection-bot function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/handle_bot_message/"
+  chemweapons-protection-bot-function:
+    Description: "chemweapons-protection-bot Lambda Function ARN"
+    Value: !GetAtt chemweapons-protection-bot.Arn
+  chemweapons-protection-bot-function-role:
+    Description: "Implicit IAM Role created for chemweapons-protection-bot function"
+    Value: !GetAtt chemweapons-protection-bot.Arn
